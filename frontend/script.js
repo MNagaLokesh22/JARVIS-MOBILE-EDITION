@@ -1,4 +1,4 @@
-//===== 1. API KEY & SMART MODELS ===== 
+// ===== 1. API KEY & SMART MODELS ===== 
 let API_KEY = localStorage.getItem('jarvis_key'); 
 if(!API_KEY) { 
     API_KEY = prompt('Enter your Gemini API Key:'); 
