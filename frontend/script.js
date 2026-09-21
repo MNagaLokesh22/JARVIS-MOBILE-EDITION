@@ -81,7 +81,14 @@ async function askVision(base64, mime, q) {
       const res = await fetch("https://generativelanguage.googleapis.com/v1beta/models/" + m + ":generateContent?key=" + API_KEY, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ contents: [{ parts: [{ text: q }, { inline_data: { mime_type: mime, data: base64 } }] }] })
+        body: JSON.stringify({
+          contents: [{
+            parts: [
+              { text: q },
+              { inline_data: { mime_type: mime, data: base64 } }
+            ]
+          }]
+        })
       });
       const data = await res.json();
       if (data.error) {
@@ -150,4 +157,3 @@ function add(t, w) {
   chat.appendChild(d);
   chat.scrollTop = chat.scrollHeight;
 }
-
